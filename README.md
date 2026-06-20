@@ -8,7 +8,7 @@ git clone https://github.com/verma-kunal/AWS-Session.git
 ```
 2. Setup the following environment variables - `(.env)` file
 >NOTE -  Where to get PUBLISHABLE_KEY and SECRET_KEY:
-   -create an account on stripe ---> head to developer option ---> you'll the option there ----(" practice on test mode on ")
+   -create an account on stripe ---> head to developer option ---> you'll find the option there ----(" practice on test mode on ")
 ```
 DOMAIN= ""
 PORT=3000
