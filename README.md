@@ -7,6 +7,8 @@
 git clone https://github.com/verma-kunal/AWS-Session.git
 ```
 2. Setup the following environment variables - `(.env)` file
+>NOTE -  Where to get PUBLISHABLE_KEY and SECRET_KEY:
+   -create an account on stripe ---> head to developer option ---> you'll the option there ----(" practice on test mode on ")
 ```
 DOMAIN= ""
 PORT=3000
@@ -29,10 +31,11 @@ npm run start
 2. Create an EC2 instance
     - Select an OS image - Ubuntu
     - Create a new key pair & download `.pem` file
-    - Instance type - t2.micro
+    - Instance type - t3.micro
 3. Connecting to the instance using ssh
 ```
 ssh -i instance.pem ubunutu@<IP_ADDRESS>
+ssh -i "path/to/the/file.pem" ubuntu@<IP_ADDRESS>
 ```
 
 ### Configuring Ubuntu on remote VM
@@ -41,8 +44,10 @@ ssh -i instance.pem ubunutu@<IP_ADDRESS>
 ```
 sudo apt update
 ```
-3. Install Git - [Guide by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-22-04) 
-4. Configure Node.js and `npm` - [Guide by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04)
+3. Install Git - In this image of ubuntu git is pre-installed.
+> NOTE - If not there then simply do:- sudo apt install git -y
+   
+4. Configure Node.js and `npm` - sudo apt install nodejs and sudo apt install npm  
 
 ### Deploying the project on AWS
 
@@ -59,6 +64,8 @@ STATIC_DIR="./client"
 PUBLISHABLE_KEY=""
 SECRET_KEY=""
 ```
+> NOTE - (If you're not able to copy & paste the .env content in vi or vim, then use nano editor)
+---------------------------------------------------------------------------
 > For this project, we'll have to set up an [Elastic IP Address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) for our EC2 & that would be our `DOMAIN`
 
 3. Initialise and start the project
@@ -68,5 +75,6 @@ npm run start
 ```
 
 > NOTE - We will have to edit the **inbound rules** in the security group of our EC2, in order to allow traffic from our particular port
+> Reason : Because it is not expose to the **open internet** when we allow the inbound trafffic to the port, it will ingest it and work smoothly. 
 
 ### Project is deployed on AWS 🎉
