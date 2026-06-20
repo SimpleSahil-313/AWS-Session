@@ -10,7 +10,7 @@ git clone https://github.com/verma-kunal/AWS-Session.git
 >NOTE -  Where to get PUBLISHABLE_KEY and SECRET_KEY:
    -create an account on stripe ---> head to developer option ---> you'll find the option there
 
-Don't  forget to select keep the **test mode on**
+(Don't forget to keep the **test mode on** while practicing.)
 ```
 DOMAIN= ""
 PORT=3000
